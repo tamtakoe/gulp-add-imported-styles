@@ -13,7 +13,7 @@ npm install gulp-add-imported-styles
 ```js
 var gulpAddImportedStyles = require('gulp-add-imported-styles');
 
-gulp.src('src/**/*.js')
+gulp.src('src/**/*')
     .pipe(gulpAddImportedStyles([
             'stylus/variables.styl',
             'css/main.css',
@@ -22,7 +22,7 @@ gulp.src('src/**/*.js')
         ],
         {basename: 'main'}))
     
-//We have stream with two files:
+//We have stream with two extra files:
 //main.styl
 //@import 'stylus/variables.styl';
 //@import 'stylus/mixins.styl';
