@@ -1,0 +1,31 @@
+{
+  "name": "gulp-add-imported-styles",
+  "description": "add style with imports into stream",
+  "version": "0.0.1",
+  "repository": "tamtakoe/gulp-add-imported-styles",
+  "author": "tamtakoe <tamtakoe@gmail.com>",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "through2": "^0.6.3",
+    "gulp-util": "^3.0.0",
+    "lodash": "^3.0.0"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "bugs": {
+    "url": "https://github.com/tamtakoe/gulp-add-imported-styles/issues"
+  },
+  "homepage": "https://github.com/tamtakoe/gulp-add-imported-styles",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
