@@ -63,7 +63,6 @@ function gulpAddImportedStyles(styles, params) {
                     path: (params.name || 'compiled') + ext,
                     contents: new Buffer(content)
                 });
-                console.log(content);
                 stream.push(file);
             });
         }
