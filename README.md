@@ -76,7 +76,7 @@ Output file basename
 ##### exclude
 Type: `Array`
 
-Array of excluded extensions (if `styles` not used). F.e. `exclude: ['css']`
+Array of excluded file extensions of base stream (if `styles` not used). F.e. `exclude: ['css']`
 
 ### gulpAddImportedStyles.src(styles[, options])
 
