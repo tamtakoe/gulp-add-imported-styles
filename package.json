@@ -1,7 +1,7 @@
 {
   "name": "gulp-add-imported-styles",
   "description": "add style with imports into stream",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "tamtakoe/gulp-add-imported-styles",
   "author": "tamtakoe <tamtakoe@gmail.com>",
   "files": [

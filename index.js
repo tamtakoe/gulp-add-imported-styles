@@ -9,11 +9,32 @@ function posixFormat(link) {
 }
 
 function gulpAddImportedStyles(styles, params) {
-    params = params || {};
+    var isStylesFromStream = !(styles instanceof Array);
+    var excludeMap = {};
+
+    if (isStylesFromStream) {
+        params = styles || {};
+        styles = [];
+
+    } else {
+        params = params || {};
+    }
+
+    if (params.exclude) {
+        params.exclude.forEach(function(ext) {
+            excludeMap['.' + ext] = true;
+        })
+    }
 
     function transform(file, enc, callback) {
+        var ext = path.extname(file.path);
 
-        callback(null, file);
+        if (isStylesFromStream && !excludeMap[ext]) {
+            styles.push(file.path);
+            callback(null);
+        } else {
+            callback(null, file);
+        }
     }
 
     function flush(callback) {
@@ -39,9 +60,10 @@ function gulpAddImportedStyles(styles, params) {
 
                 var file = new gutil.File({
                     cwd: params.cwd,
-                    path: (params.basename || 'compiled') + ext,
+                    path: (params.name || 'compiled') + ext,
                     contents: new Buffer(content)
                 });
+                console.log(content);
                 stream.push(file);
             });
         }
@@ -53,3 +75,12 @@ function gulpAddImportedStyles(styles, params) {
 }
 
 module.exports = gulpAddImportedStyles;
+
+module.exports.src = function(styles, options) {
+    var source = gulpAddImportedStyles(styles, options);
+
+    process.nextTick(function() {
+        return source.end();
+    });
+    return source;
+};
